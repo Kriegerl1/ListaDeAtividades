@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Solução18ConsoleApp
+namespace Solução_18_ConsoleApp
 {
     class Program
     {
