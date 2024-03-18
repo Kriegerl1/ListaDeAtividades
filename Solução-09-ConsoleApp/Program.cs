@@ -1,43 +1,32 @@
 ﻿using System;
 
-namespace CalculadoraMediaHarmonica
+namespace Solução_09_ConsoleApp
 {
-    class Program
+    class Principal
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Calculadora de Média Harmônica\n");
+            Console.WriteLine("Média harmônica | Academia de Programação 2024!\n");
+            Console.WriteLine("Definitivamente só a média foi harmonica nisso...\n");
+            
+            
             Console.WriteLine("Digite os números separados por espaço:");
 
-            string input = Console.ReadLine();
+            string[] input = Console.ReadLine().Split(' ');
 
-            string[] numerosStr = input.Split(' ');
+            int n = input.Length;
+            double media_harmonica;
+            double soma = 0;
 
-            double somaReciprocos = 0;
-
-            int n = numerosStr.Length;
-
-            foreach (string numeroStr in numerosStr)
+            for (int i = 0; i < input.Length; i++)
             {
-                if (double.TryParse(numeroStr, out double numero))
-                {
-                    if (numero == 0)
-                    {
-                        Console.WriteLine("Não é possível calcular a média harmônica com números iguais a zero.");
-                        return;
-                    }
-                    somaReciprocos += 1 / numero;
-                }
-                else
-                {
-                    Console.WriteLine($"'{numeroStr}' não é um número válido.");
-                    return;
-                }
-            }
+                soma = soma + Convert.ToInt32(input[i]);
+            } 
 
-            double mediaHarmonica = n / somaReciprocos;
+            media_harmonica = soma / n;
 
-            Console.WriteLine($"A média harmônica é: {mediaHarmonica}");
+            Console.WriteLine($"\nA Média Harmônica é:{ media_harmonica}");
+            Console.ReadLine();
         }
     }
 }
