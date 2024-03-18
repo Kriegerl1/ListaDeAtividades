@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Solução_28_ConsoleApp
+﻿namespace Solução_28_ConsoleApp
 {
     internal class Program
     {
