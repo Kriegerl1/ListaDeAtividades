@@ -11,8 +11,10 @@ namespace Solução_20_ConsoleApp
 
             string numeroString = Console.ReadLine();
 
+            // Validar entrada
             int numero = Convert.ToInt32(numeroString);
 
+            // Verificar se o número é par ou ímpar
             if (numero % 2 != 0)
             {
                 Console.WriteLine($"O número {numero} é ímpar.");
