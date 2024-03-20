@@ -11,23 +11,26 @@ namespace Solução_03_ConsoleApp
             Console.WriteLine("Para calcular o volume, precisamos de algumas informações. " +
                 "Por favor, insira as dimensões do cilindro (raio x altura).");
 
-            Console.WriteLine("Insira a unidade de medida (por exemplo, cm, m, etc.): ");
-            string unidadeMedida = Console.ReadLine();
-
             double PI = Math.PI;
 
-            Console.WriteLine("Insira o raio do cilindro: ");
-            string raioString = Console.ReadLine();
-            double raio = Convert.ToDouble(raioString);
+            double raio = obterValor("Insira o raio do cilindro em metros: ");
 
-            Console.WriteLine("Insira a altura do cilindro: ");
-            string alturaString = Console.ReadLine();
-            double altura = Convert.ToDouble(alturaString);
+
+            double altura = obterValor("Insira a altura do cilindro em metros: ");
+
 
             double raioQuadrado = Math.Pow(raio, 2);
             double volumeDoCilindro = PI * raioQuadrado * altura;
 
-            Console.WriteLine($"O volume do cilindro é: {volumeDoCilindro.ToString("F")} {unidadeMedida}³");
+            Console.WriteLine($"O volume do cilindro é: {volumeDoCilindro.ToString("F")} m³");
+        }
+        static double obterValor(string texto)
+        {
+            Console.WriteLine(texto);
+
+            double input = Convert.ToDouble(Console.ReadLine());
+
+            return input;
         }
     }
 }

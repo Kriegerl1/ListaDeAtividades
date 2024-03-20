@@ -11,24 +11,25 @@ namespace Solução_01_ConsoleApp
             Console.WriteLine("Para calcular o volume, precisamos de algumas informações. " +
                 "Por favor, insira as dimensões do objeto (comprimento x largura x altura).");
 
-            Console.WriteLine("Insira a unidade de medida (por exemplo, cm, m, etc.): ");
-            string unidadeDeMedida = Console.ReadLine();
-
-            Console.WriteLine("Insira o comprimento: ");
-            string comprimentoString = Console.ReadLine();
-            double comprimento = Convert.ToDouble(comprimentoString);
-
-            Console.WriteLine("Insira a largura: ");
-            string larguraString = Console.ReadLine();
-            double largura = Convert.ToDouble(larguraString);
-
-            Console.WriteLine("Insira a altura: ");
-            string alturaString = Console.ReadLine();
-            double altura = Convert.ToDouble(alturaString);
-
+            double unidadeDeMedida = obterValor("Insira a unidade de medida (por exemplo, cm, m, etc.): ");
+            double comprimento = obterValor("Insira o comprimento: ");
+            double largura = obterValor("Insira a largura: ");
+            double altura = obterValor("Insira a altura: ");
             double calcVolume = comprimento * largura * altura;
 
+
             Console.WriteLine($"O volume do objeto é de {calcVolume.ToString("F")} {unidadeDeMedida}³");
+
+        }
+
+        static double obterValor(string texto)
+        {
+            Console.WriteLine(texto);
+
+            double input = Convert.ToDouble(Console.ReadLine());
+
+            return input;
+
         }
     }
 }

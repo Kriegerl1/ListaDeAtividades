@@ -8,17 +8,14 @@ namespace Solução_04_ConsoleApp
         {
             Console.WriteLine("Calculadora de consumo de combustível | Academia de Programação 2024!\n");
 
-            Console.WriteLine("Digite a quilometragem inicial do veículo:");
-            string inicioString = Console.ReadLine();
-            double inicio = Convert.ToDouble(inicioString);
+            double inicio = obterValor("Digite a quilometragem inicial do veículo:");
 
-            Console.WriteLine("Digite a quilometragem final do veículo:");
-            string finalString = Console.ReadLine();
-            double fim = Convert.ToDouble(finalString);
 
-            Console.WriteLine("Informe a quantidade total de combustível consumida (em litros):");
-            string gasTotalString = Console.ReadLine();
-            double gasTotal = Convert.ToDouble(gasTotalString);
+            double fim = obterValor("Digite a quilometragem final do veículo:");
+
+
+            double gasTotal = obterValor("Informe a quantidade total de combustível consumida (em litros):");
+
 
             if (inicio >= fim)
             {
@@ -29,6 +26,14 @@ namespace Solução_04_ConsoleApp
                 double mediaKM = (fim - inicio) / gasTotal;
                 Console.WriteLine($"O consumo médio do veículo foi de {mediaKM:F2} km/l.");
             }
+        }
+        static double obterValor(string texto)
+        {
+            Console.WriteLine(texto);
+
+            double input = Convert.ToDouble(Console.ReadLine());
+
+            return input;
         }
     }
 }
