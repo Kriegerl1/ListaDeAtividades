@@ -6,18 +6,18 @@
         {
             Console.WriteLine("Leitura de Valores | Academia de programação 2024!");
 
-            Console.WriteLine("Insira o valor de A:");
-            string aString = Console.ReadLine();
-            double a = Convert.ToDouble(aString);
 
-            Console.WriteLine("Insira o valor de B:");
-            string bString = Console.ReadLine();
-            double b = Convert.ToDouble(bString);
+            double a = obterValor("Insira o valor de A:");
 
-            Console.WriteLine("Insira o valor de C:");
-            string cString = Console.ReadLine();
-            double c = Convert.ToDouble(cString);
+            double b = obterValor("Insira o valor de B:");
 
+            double c = obterValor("Insira o valor de C:");
+
+            calculoDeIMC(a, b, c);
+        }
+
+        static void calculoDeIMC(double a, double b, double c)
+        {
             double resultado = a + b;
 
             if (resultado < c)
@@ -37,6 +37,15 @@
 
                 Console.WriteLine("A soma dos valores de A e B é igual ao valor de C");
             }
+        }
+
+        static double obterValor(string texto)
+        {
+            Console.WriteLine(texto);
+
+            double input = Convert.ToDouble(Console.ReadLine());
+
+            return input;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 
 namespace Solução_07_ConsoleApp
 {
@@ -8,26 +9,42 @@ namespace Solução_07_ConsoleApp
         {
             Console.WriteLine("Calculadora de salário comissionado | Academia de Programação 2024!\n");
 
-            Console.WriteLine("Por favor, insira o salário base do vendedor:");
-            string salarioBaseString = Console.ReadLine();
-            double salarioBase = Convert.ToDouble(salarioBaseString);
+            double salarioBase = obterValor<double>("Por favor, insira o salário base do vendedor:");
 
-            Console.WriteLine("Por favor, insira o total de vendas do vendedor:");
-            string vendasTotaisString = Console.ReadLine();
-            int vendasTotais = Convert.ToInt32(vendasTotaisString);
- 
-            Console.WriteLine("Por favor, insira o valor do produto vendido:");
-            string valorProdutoVendidoString = Console.ReadLine();
-            double valorProdutoVendido = Convert.ToDouble(valorProdutoVendidoString);
 
-            Console.WriteLine("Por favor, insira a porcentagem da comissão (%):");
-            string porcentagemComissaoString = Console.ReadLine();
-            double porcentagemComissao = Convert.ToDouble(porcentagemComissaoString);
+            int vendasTotais = obterValor<int>("Por favor, insira o total de vendas do vendedor:");
+
+
+            double valorProdutoVendido = obterValor<double>("Por favor, insira o valor do produto vendido:");
+
+
+            double porcentagemComissao = obterValor<double>("Por favor, insira a porcentagem da comissão (%):");
+
 
             double salarioTotal = salarioBase + (vendasTotais * (valorProdutoVendido * (porcentagemComissao / 100)));
 
             Console.WriteLine($"O Salário total do vendedor é de: {salarioTotal:F}");
 
         }
+
+        static Dinamico obterValor<Dinamico>(string texto)
+        {
+            Console.WriteLine(texto);
+
+
+            string input = Console.ReadLine();
+
+            try
+            {
+                return (Dinamico)Convert.ChangeType(input, typeof(Dinamico));
+            }
+            catch
+            {
+                Console.WriteLine("Valor inválido!");
+                return obterValor<Dinamico>(texto);
+            }
+        }
+
+
     }
 }

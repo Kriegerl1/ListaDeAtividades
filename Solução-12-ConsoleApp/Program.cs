@@ -7,13 +7,11 @@ namespace Solução_12_ConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Calculadora de área | Academia de Programação 2024!\n");
-            Console.WriteLine("Informe o comprimento do terreno (em metros):");
-            string comprimentoString = Console.ReadLine();
-            double comprimento = Convert.ToDouble(comprimentoString);
 
-            Console.WriteLine("Agora, informe a largura do terreno (em metros):");
-            string larguraString = Console.ReadLine();
-            double largura = Convert.ToDouble(larguraString);
+
+            double comprimento = obterValor("Informe o comprimento do terreno (em metros):");
+            double largura = obterValor("Agora, informe a largura do terreno (em metros):");
+
 
             double calculoArea = comprimento * largura;
 
@@ -22,6 +20,14 @@ namespace Solução_12_ConsoleApp
             {
                 Console.WriteLine("Mas infelizmente o terreno não está nos padrões de venda da imobiliária.");
             }
+        }
+        static double obterValor(string texto)
+        {
+            Console.WriteLine(texto);
+
+            double input = Convert.ToDouble(Console.ReadLine());
+
+            return input;
         }
     }
 }

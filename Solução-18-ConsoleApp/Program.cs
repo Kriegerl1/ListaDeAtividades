@@ -6,16 +6,15 @@ namespace Solução_18_ConsoleApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Digite o primeiro número:");
-            int numero1 = int.Parse(Console.ReadLine());
+            int numero1 = obterValor("Digite o primeiro número:");
+            int numero2 = obterValor("Digite o segundo número:");
+            int numero3 = obterValor("Digite o terceiro número:");
 
-            Console.WriteLine("Digite o segundo número:");
-            int numero2 = int.Parse(Console.ReadLine());
+            ordenaValores(numero1, numero2, numero3);
+        }
 
-            Console.WriteLine("Digite o terceiro número:");
-            int numero3 = int.Parse(Console.ReadLine());
-
-
+         static void ordenaValores(int numero1, int numero2, int numero3)
+        {
             int[] numeros = { numero1, numero2, numero3 };
 
             Array.Sort(numeros);
@@ -26,6 +25,15 @@ namespace Solução_18_ConsoleApp
                 Array.Reverse(numeros);
                 Console.WriteLine(numero);
             }
+        }
+
+        static int obterValor(string texto)
+        {
+            Console.WriteLine(texto);
+
+            int input = Convert.ToInt32(Console.ReadLine());
+
+            return input;
         }
     }
 }

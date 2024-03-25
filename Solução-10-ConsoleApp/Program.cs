@@ -8,23 +8,34 @@ namespace Solução_10_ConsoleApp
         {
             Console.WriteLine("Calculadora de média ponderada | Academia de Programação 2024!\n");
 
-            Console.WriteLine("Digite a primeira nota:");
-            string nota1String = Console.ReadLine();
-            double nota1 = Convert.ToDouble(nota1String);
-            Console.WriteLine("Digite o peso da primeira nota:");
-            string peso1String = Console.ReadLine();
-            int peso1 = Convert.ToInt32(peso1String);
+            double nota1 = obterValor<double>("Digite a primeira nota:");
+            int peso1 = obterValor<int>("Digite o peso da primeira nota:");
 
-            Console.WriteLine("Digite a segunda nota:");
-            string nota2String = Console.ReadLine();
-            double nota2 = Convert.ToDouble(nota2String);
-            Console.WriteLine("Digite o peso da segunda nota:");
-            string peso2String = Console.ReadLine();
-            int peso2 = Convert.ToInt32(peso2String);
+            double nota2 = obterValor<double>("Digite a segunda nota:");
+            int peso2 = obterValor<int>("Digite o peso da segunda nota:");
+
 
             double mediaPonderada = ((nota1 * peso1) + (nota2 * peso2)) / (peso1 + peso2);
 
             Console.WriteLine($"A média ponderada é: {mediaPonderada:F2}");
+        }
+
+        static Tipo obterValor<Tipo>(string texto)
+        {
+
+            Console.WriteLine(texto);
+
+            string input = Console.ReadLine();
+
+            try
+            {
+                return (Tipo)Convert.ChangeType(input, typeof(Tipo));
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Valor inválido, tente novamente!");
+                return obterValor<Tipo>(texto);
+            }
         }
     }
 }

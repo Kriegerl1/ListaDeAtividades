@@ -12,12 +12,12 @@ namespace Solução_25_ConsoleApp
             int a = Convert.ToInt32(aString);
             int fatorial = a;
 
-            for (int i = a-1; i >= 1; i--)
+            for (int i = a - 1; i >= 1; i--)
             {
+                Console.Write($"{1 + i} x ");
                 fatorial = fatorial * i;
-
-
             }
+            Console.WriteLine(1);
             Console.WriteLine($"\nFatorial de é {fatorial} ");
             Console.ReadLine();
         }
